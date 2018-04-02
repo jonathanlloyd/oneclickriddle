@@ -75,7 +75,7 @@ def index():
 def answer():
     correct = False
     if request.method == 'POST':
-        correct = request.form.get('answer') == SECRETS['ANSWER']
+        correct = request.form.get('answer').lower() == SECRETS['ANSWER'].lower()
     return render_template(
         'answer.html',
         correct=correct,
