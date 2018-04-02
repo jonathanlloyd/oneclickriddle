@@ -1,0 +1,4 @@
+ipdb
+nose
+pylint
+requests

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+cd "$(dirname "$0")"/..
+
+export FLASK_DEBUG=1
+export FLASK_APP=ocr_server/app.py
+export LOG_LEVEL="DEBUG"
+export QUESTION="I fly when I am born. I lie when I am alive. I run when I am dead. What am I?"
+export ANSWER="snowflake"
+export $(cat .env | xargs ) || true
+
+venv/bin/flask run --host=0.0.0.0 --port=8000

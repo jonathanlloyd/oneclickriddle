@@ -1,0 +1,15 @@
+{
+  "name": "One Click Riddle",
+  "description": "Simple guessing-game to test heroku deploy",
+  "repository": "https://github.com/jonathanlloyd/oneclickriddle",
+  "keywords": ["riddle", "guessing", "game"]
+  "env": {
+    "QUESTION": {
+      "description": "The question to be asked."
+    },
+    "ANSWER": {
+      "description": "The answer to that question."
+    }
+  }
+}
+

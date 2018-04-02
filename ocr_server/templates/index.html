@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>One Click Riddle</title>
+    <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+    <style>
+html, body {
+  background: black;
+  box-sizing: border-box;
+  color: white;
+  font-family: sans;
+  font-size: 16pt;
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.error {
+  background: red;
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 100px;
+  text-align: center;
+  width: 100%;
+}
+
+.question {
+  box-sizing: border-box;
+  display: block;
+  font-size: 40pt;
+  margin: 0 auto;
+  padding-top: 100px;
+  margin-bottom: 50px;
+  text-align: center;
+  width: 80%;
+}
+
+.answer {
+  background: black;
+  border: 3px solid white;
+  color: white;
+  display: block;
+  font-size: 20pt;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.submit_answer {
+  background: black;
+  border: 3px solid white;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 20pt;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      {% if error %}
+        <div class="error">
+          Error: {{ error }}
+        </div>
+      {% else %}
+        <span class="question">{{ question }}</span>
+        <form action="/answer" method="POST">
+          <input class="answer" type="text" name="answer"/>
+          <input class="submit_answer" type="submit" value="Submit Answer"/>
+        </form>
+      {% endif %}
+    </div>
+  </body>
+</html>
