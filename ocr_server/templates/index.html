@@ -16,6 +16,11 @@ html, body {
   width: 100%;
 }
 
+.staging_banner {
+  font-size: 40pt;
+  color: red;
+}
+
 .wrapper {
   height: 100%;
   width: 100%;
@@ -66,6 +71,12 @@ html, body {
   </head>
   <body>
     <div class="wrapper">
+      {% if is_staging %}
+        <div class="staging_banner">
+          STAGING
+        </div>
+      {% endif %}
+
       {% if error %}
         <div class="error">
           Error: {{ error }}

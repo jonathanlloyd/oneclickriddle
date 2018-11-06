@@ -23,6 +23,10 @@ CONFIG = envpy.get_config({
         value_type=str,
         default='INFO',
     ),
+    'ENABLE_STAGING': envpy.Schema(
+        value_type=bool,
+        default=False,
+    ),
 })
 
 SECRETS = envpy.get_config({
@@ -69,6 +73,7 @@ def index():
         'index.html',
         question=SECRETS['QUESTION'],
         error=error,
+        is_staging=CONFIG['ENABLE_STAGING'],
     )
 
 @app.route('/answer', methods=['POST', 'GET'])
